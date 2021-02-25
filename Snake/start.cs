@@ -7,7 +7,7 @@ namespace Snake
     public class Start
     {
         public ConsoleKeyInfo key;
-        public start()
+        public Start()
         {
 
         }

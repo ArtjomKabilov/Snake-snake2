@@ -11,15 +11,11 @@ namespace Snake
             Console.Clear();
             Console.Title = "Snake";
             Console.SetWindowSize(101, 26);
-            HorizontalLIne upline = new HorizontalLIne(0, 100, 0, '+');
-            HorizontalLIne downline = new HorizontalLIne(0, 100, 25, '+');
-            VerticalLine leftline = new VerticalLine(1, 25, 0, '+');
-            VerticalLine rightline = new VerticalLine(1, 25, 100, '+');
-            upline.Draw();
-            downline.Draw();
-            leftline.Draw();
-            rightline.Draw();
-            Parametrs settings = new Parametrs();
+
+            Walls walls = new Walls(101, 26);
+            walls.Draw();
+
+            //Parametrs settings = new Parametrs();
             //Sounds sound = new Sounds(settings.GetResourceFolder());
             //sound.Play("stardust.mp3");
 
@@ -30,10 +26,15 @@ namespace Snake
             Point food = foodCreator.CreateFood();
             food.Draw();
             Score score = new Score(0, 1);//score =0, level=1
-            score.speed = 400;
+            score.speed = 200;
             score.ScoreWrite();
+
             while (true)
             {
+                if (walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
                 if (snake.Eat(food))
                 {
                     score.ScoreUp();
@@ -43,7 +44,7 @@ namespace Snake
                     //sound.Stop("stardust.mp3");
                     if (score.ScoreUp())
                     {
-                        score.speed -= 10;
+                        score.speed -= 20;
                     }
                 }
                 else
@@ -59,6 +60,25 @@ namespace Snake
             }
         }
 
+
+        static void WriteGameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+            WriteText("     G A M E  O V E R", xOffset + 1, yOffset++);
+            yOffset++;
+            WriteText("============================", xOffset, yOffset++);
+        }
+
+        static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
+        }
+
         static void Main(string[] args)
         {
             Start start = new Start();
@@ -72,8 +92,9 @@ namespace Snake
                 start.Game_stop();
             }
 
-
+            WriteGameOver();
             Console.ReadLine();
+
         }
     }
 }

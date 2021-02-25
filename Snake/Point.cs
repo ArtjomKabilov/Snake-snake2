@@ -11,23 +11,26 @@ namespace Snake
 		public int x;
 		public int y;
 		public char sym;
+		public ConsoleColor col;
 
 		public Point()
 		{
 		}
 
-		public Point(int x, int y, char sym)
+		public Point(int x, int y, char sym, ConsoleColor col)
 		{
 			this.x = x;
 			this.y = y;
 			this.sym = sym;
+			this.col = col;
 		}
 
-		public Point(Point p)
+		public Point(Point p, ConsoleColor col)
 		{
 			x = p.x;
 			y = p.y;
 			sym = p.sym;
+			col = p.col;
 		}
 
 		public void Move(int offset, Direction direction)

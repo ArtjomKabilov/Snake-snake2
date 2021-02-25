@@ -15,8 +15,8 @@ namespace Snake
 			wallList = new List<Figure>();
 
 			// Отрисовка рамочки
-			HorizontalLine upLine = new HorizontalLine(0, mapWidth - 2, 0, '+');
-			HorizontalLine downLine = new HorizontalLine(0, mapWidth - 2, mapHeight - 1, '+');
+			HorizontalLIne upLine = new HorizontalLIne(0, mapWidth - 2, 0, '+');
+			HorizontalLIne downLine = new HorizontalLIne(0, mapWidth - 2, mapHeight - 1, '+');
 			VerticalLine leftLine = new VerticalLine(0, mapHeight - 1, 0, '+');
 			VerticalLine rightLine = new VerticalLine(0, mapHeight - 1, mapWidth - 2, '+');
 

@@ -1,32 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Text;
 
-namespace Snake
-{
-{
-    class Parametrs
-    {
+//namespace Snake
+//{
+    //class Parametrs
+    //{
 
-        private string resourcesFolder;
+       // private string resourcesFolder;
 
-        public Parametrs()
-        {
-            var ind = Directory.GetCurrentDirectory().ToString()
-                .IndexOf("bin", StringComparison.Ordinal); // Получить индекс папки bin
+       // public Parametrs()
+       // {
+         //   var ind = Directory.GetCurrentDirectory().ToString()
+          //      .IndexOf("bin", StringComparison.Ordinal); // Получить индекс папки bin
 
-            string binFolder =
-                Directory.GetCurrentDirectory().ToString().Substring(0, ind)
-                    .ToString(); // путь до указанной в инкесе папки
+          //  string binFolder =
+         //       Directory.GetCurrentDirectory().ToString().Substring(0, ind)
+         //           .ToString(); // путь до указанной в инкесе папки
 
-            resourcesFolder = binFolder + "Resources\\";
-        }
+       //     resourcesFolder = binFolder + "Resources\\";
+       // }
 
-        public string GetResourceFolder()
-        {
-            return resourcesFolder;
-        }
+      //  public string GetResourceFolder()
+      //  {
+      //      return resourcesFolder;
+      //  }
 
 
-    }
-}
+   // }
+//}
